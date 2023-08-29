@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    box-sizing: border-box
+}
+
+
+.home_page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    .home_page_content {
+        width: 100%;
+        min-width: 1440px;
+        height: 100%;
+
+        .category {
+            width: 100%;
+            margin: 20px 0 0 0;
+
+            h1 {}
+        }
+
+    }
+}
