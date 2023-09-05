@@ -1,8 +1,14 @@
-import { I18nType } from "./en";
-
-const data: I18nType = {
-    hello: "Xin chao hahaha",
-    about: "Ve toi"
+const data = {
+    /* Đăng kí */
+    languages: "Ngôn Ngữ",
+    language: "Tiếng Việt",
+    createYourAccount: "Tạo tài khoản mới",
+    signup: "Đăng kí",
+    signin: "Đăng nhập",
+    userName: "Tên đăng nhập",
+    passWord: "Mật khẩu",
+    freeTrial: "Đăng kí ngay để dùng thử 14 ngày miễn phí",
+    notMember: "Chưa có tài khoản?"
 }
-
+export type I18nType = typeof data;
 export default data;

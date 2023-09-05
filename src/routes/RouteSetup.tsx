@@ -3,6 +3,7 @@ import Lazy from '@utils/lazies/Lazy'
 import Home from '@pages/homes/Home'
 import RouteProduct from './RouteProduct'
 import RouteAuths from '../pages/auths/Route'
+import RouteUser from "./RouteUser"
 
 export default function RouteSetup() {
   return (
@@ -14,6 +15,7 @@ export default function RouteSetup() {
           <Route path="infor" element={<>Thông Tin</>}></Route>
           {RouteProduct}
         </Route>
+        {RouteUser}
         {RouteAuths}
       </Routes>
     </BrowserRouter>

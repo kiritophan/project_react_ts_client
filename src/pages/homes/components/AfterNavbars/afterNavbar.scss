@@ -1,0 +1,31 @@
+@media only screen and (device-width: 1200px) {
+
+    /* For general iPad layouts */
+    .after-navbar {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        margin-left: -500px;
+        width: 994px;
+        border: 4px;
+        border-style: solid;
+        border-color: #ffffff;
+    }
+}
+
+@media only screen and (device-width: 768px) {
+
+    /* For general iPad layouts */
+    .after-navbar {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        margin-left: -500px;
+        width: 994px;
+        border: 4px;
+        border-style: solid;
+        border-color: #ffffff;
+    }
+}

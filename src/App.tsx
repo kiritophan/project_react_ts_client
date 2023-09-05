@@ -1,28 +1,33 @@
-import { useTranslation } from 'react-i18next'
 import './main.scss'
 import RouteSetup from '@routes/RouteSetup'
-import { googleLogin } from './firebase';
-import axios from 'axios';
-
+import { useSelector, useDispatch } from 'react-redux'
+import { StoreType } from './stores'
+import { useEffect } from 'react'
+import api from '@services/apis'
+import { userAction } from './stores/slices/user.slice'
 
 function App() {
-  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const store = useSelector(store => store) as StoreType;
 
-  async function handleGoogleLogin() {
-    let result = await googleLogin();
-    let token = await result.user.getIdToken();
-    let serverRes = await axios.post("http://localhost:4000/authen-google", {
-      token
-    })
-    console.log("da vao result", serverRes);
-  }
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      api.userApi.authentication()
+        .then(res => {
+          console.log("res", res)
+          if (res.status == 200) {
+            dispatch(userAction.setLoginData(res.data.data))
+          } else {
+            localStorage.removeItem("token")
+          }
+        })
+    }
+  }, [])
+
   return (
     <>
+      <h1>User is login: {store.userStore.data?.firstName} {store.userStore.data?.lastName}</h1>
       {/* Routing */}
-      Thu: {t('hello')}
-      <button onClick={() => {
-        handleGoogleLogin();
-      }}>Google Signin</button>
       <RouteSetup />
     </>
   )

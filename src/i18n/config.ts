@@ -5,7 +5,7 @@ import en from './translations/en'
 import vi from './translations/vi'
 import jp from './translations/jp'
 
-function setLocalLanguage():string{
+function setLocalLanguage(): string {
     let locales = localStorage.getItem("locales");
     return locales ? locales : 'en'
 }
@@ -15,8 +15,8 @@ i18n
     .use(initReactI18next)
     .init({
         lng: setLocalLanguage(),
-        fallbackLng: 'jp',
-        debug: true,
+        fallbackLng: 'en',
+        debug: false,
         resources: {
             en: {
                 translation: en,

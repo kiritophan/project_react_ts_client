@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { commonReducer } from './slices/common.slice';
+import { userReducer } from './slices/user.slice';
 
 // Kết hợp reducer
 const rootReducer = combineReducers({
-    commonStore: commonReducer
+    commonStore: commonReducer,
+    userStore: userReducer
 });
 
 // Xuất ra store type
