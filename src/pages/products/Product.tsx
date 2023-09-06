@@ -1,120 +1,119 @@
-import React, { useState, useCallback } from 'react'
-import Icon from '../../../public/vite.svg'
-import { Outlet } from 'react-router-dom'
-import Test from '@/components/Test';
+import { useEffect, useRef, useState } from 'react'
+import './product.scss'
+import api from '@services/apis'
 
-export interface Prop {
-    count: number,
-    handlePrintCount: (count: number) => void
+interface Category {
+    id: string;
+    title: string;
+    avatar: string;
 }
-
+interface Picture {
+    file: File;
+    url: string;
+}
 export default function Product() {
-    const [count, setCount] = useState(0);
-    const [count2, setCount2] = useState(0);
+    const imgPreviewRef = useRef();
+    const [categories, setCategories] = useState([]);
+    const [pictures, setPictures] = useState<Picture[]>([]);
+    const [avatarFile, setAvatarFile] = useState<File | null>(null);
+    useEffect(() => {
+        api.categoryApi.findMany()
+            .then(res => {
+                if (res.status != 200) {
+                    alert(res.data.message)
+                } else {
+                    setCategories(res.data.data)
+                }
+            })
+    }, [])
 
-    const handlePrintCount = useCallback(
-        (count: number) => {
-            alert("Count value is: " + count)
-        },
-        [count],
-    )
-    console.log("rerender Product component")
+    function addNewProduct(e: FormDataEvent) {
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append("product", JSON.stringify({
+            categoryId: (e.target as any).categoryId.value,
+            name: (e.target as any).name.value,
+            des: (e.target as any).des.value,
+            price: (e.target as any).price.value,
+        }))
+        formData.append("imgs", avatarFile!)
+        for (let i in pictures) {
+            formData.append("imgs", pictures[i].file)
+        }
+
+        api.productApi.create(formData)
+            .then(res => {
+                console.log("res", res)
+            })
+            .catch(err => {
+
+            })
+
+        window.alert("OK")
+    }
     return (
-        <>
-            <h1>Product {count}</h1>
-            <Test count={count} handlePrintCount={handlePrintCount} />
-            <Outlet />
-            <button onClick={() => {
-                setCount(count + 1)
-            }}>
-                Tang
-            </button>
-            <button onClick={() => {
-                setCount2(count2 + 1)
-            }}>
-                Tang 2
-            </button >
-            <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-                <a href="#">
-                    <img
-                        className="p-8 rounded-t-lg"
-                        src={Icon}
-                        alt="product image"
-                    />
-                </a>
-                <div className="px-5 pb-5">
-                    <a href="#">
-                        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                            Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
-                        </h5>
-                    </a>
-                    <div className="flex items-center mt-2.5 mb-5">
-                        <svg
-                            className="w-4 h-4 text-yellow-300 mr-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                        >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg
-                            className="w-4 h-4 text-yellow-300 mr-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                        >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg
-                            className="w-4 h-4 text-yellow-300 mr-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                        >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg
-                            className="w-4 h-4 text-yellow-300 mr-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                        >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg
-                            className="w-4 h-4 text-gray-200 dark:text-gray-600"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                        >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                            5.0
-                        </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                            $599
-                        </span>
-                        <a
-                            href="#"
-                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                        >
-                            Add to cart
-                        </a>
-                    </div>
-
+        <form onSubmit={(e) => {
+            addNewProduct(e);
+        }}>
+            <h1>Add Product</h1>
+            <div>
+                Category
+                <select name='categoryId'>
+                    {
+                        categories.map(category => <option key={Math.random() * Date.now()} value={(category as Category).id}>{(category as Category).title}</option>)
+                    }
+                </select>
+            </div>
+            <div>
+                Name
+                <input name='name' type="text" />
+            </div>
+            <div>
+                Des
+                <input name='des' type="text" />
+            </div>
+            <div>
+                Price
+                <input name='price' type="text" />
+            </div>
+            <div>
+                Avatar
+                <input name='imgs' type="file" onChange={(e) => {
+                    if (e.target.files) {
+                        if (e.target.files.length > 0) {
+                            (imgPreviewRef.current! as HTMLImageElement).src = URL.createObjectURL(e.target.files[0]);
+                            setAvatarFile(e.target.files[0])
+                        }
+                    }
+                }} />
+                <img ref={imgPreviewRef} style={{ width: "100px", height: "100px", borderRadius: "50%" }} />
+            </div>
+            <div>
+                Pictures
+                <input name="imgs" type="file" multiple onChange={(e) => {
+                    if (e.target.files) {
+                        if (e.target.files.length > 0) {
+                            let tempPictures: Picture[] = [];
+                            for (let i in e.target.files) {
+                                if (i == "length") {
+                                    break
+                                }
+                                tempPictures.push({
+                                    file: e.target.files[i],
+                                    url: URL.createObjectURL(e.target.files[i])
+                                })
+                            }
+                            setPictures(tempPictures)
+                        }
+                    }
+                }} />
+                <div>
+                    {
+                        pictures.map(picture => <img src={picture.url} style={{ width: "100px", height: "100px", borderRadius: "50%" }} />)
+                    }
                 </div>
             </div>
-        </>
-
-
+            <button type='submit'>Add</button>
+        </form>
     )
 }

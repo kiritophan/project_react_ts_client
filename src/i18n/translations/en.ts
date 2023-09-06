@@ -8,6 +8,7 @@ const data = {
     passWord: "Password",
     signin: "Sign in",
     freeTrial: "Register now and Start a 14 day free trial",
+    loginNow: "Have an account Login Now",
     notMember: "Don't have an account?"
 }
 

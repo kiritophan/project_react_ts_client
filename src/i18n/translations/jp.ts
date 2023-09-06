@@ -8,6 +8,7 @@ const data = {
     userName: "名前",
     passWord: "パスワード",
     freeTrial: "登録して14日無料試用",
+    loginNow: "ログイン",
     notMember: "まだ楽天会員に登録されていない方？"
 }
 export type I18nType = typeof data;

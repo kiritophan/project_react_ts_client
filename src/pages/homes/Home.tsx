@@ -19,7 +19,6 @@ export default function Home() {
                 <Banner />
                 <Outlet />
                 <div className='category'>
-                    <h1> Category </h1>
                     <div className='category-content'>
                         <Category />
                     </div>

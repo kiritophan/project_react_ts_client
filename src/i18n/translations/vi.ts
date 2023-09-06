@@ -8,6 +8,7 @@ const data = {
     userName: "Tên đăng nhập",
     passWord: "Mật khẩu",
     freeTrial: "Đăng kí ngay để dùng thử 14 ngày miễn phí",
+    loginNow: "Đã có tài khoản? Đăng nhập ngay",
     notMember: "Chưa có tài khoản?"
 }
 export type I18nType = typeof data;

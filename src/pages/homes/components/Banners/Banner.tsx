@@ -20,7 +20,7 @@ export default function Banner() {
 
     return (
         <>
-            <nav className="mx-auto p-4 bg-amber-400">
+            <nav >
                 <div
                     className="
                             container

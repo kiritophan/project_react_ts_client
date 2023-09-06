@@ -6,8 +6,11 @@ import Loading from './components/Loading'
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin, message, Modal } from 'antd';
 import './user.scss'
+import img from './nhaxinh.png'
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
+    const navigate = useNavigate();
     const [load, setLoad] = useState(false);
     const antIcon = (
         <LoadingOutlined
@@ -45,7 +48,7 @@ const Register = () => {
                     })
                 }
             })
-            .catch(err => {
+            .catch(_err => {
                 Modal.success({
                     content: "Sập server!",
                     okText: "thử lại"
@@ -57,17 +60,20 @@ const Register = () => {
 
     return (
         <>
-            <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+            <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8" style={{ width: '500px', height: '100%', margin: '50px auto', border: '1px solid black' }} >
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+
                     <img
                         className="mx-auto h-10 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        src={img}
                         alt="Your Company"
+                        onClick={() => navigate('/')}
                     />
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         {t('createYourAccount')}
                     </h2>
                 </div>
+
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form onSubmit={(e) => {
                         register(e)
@@ -150,7 +156,7 @@ const Register = () => {
                                 <input
                                     name="password"
                                     type="password"
-                                    placeholder="••••••••"
+                                    placeholder=" •••••••• "
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -169,7 +175,7 @@ const Register = () => {
                                 <input
                                     name="confirm-password"
                                     type="password"
-                                    placeholder="••••••••"
+                                    placeholder=" •••••••• "
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -190,16 +196,17 @@ const Register = () => {
                             </button>
                         </div>
                     </form>
-                    <p className="mt-10 text-center text-sm text-gray-500">
+                    <p className="mt-10 text-center text-sm text-gray-500 d-flex">
                         {t('notMember')}
                         <a
-                            href="#"
+                            href="/login"
                             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                         >
-                            {t('freeTrial')}
+                            {t('loginNow')}
+
                         </a>
+                        <DropDown />
                     </p>
-                    <DropDown />
                 </div>
             </div>
         </>
