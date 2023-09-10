@@ -22,7 +22,6 @@ export default function Home() {
                     <div className='category-content'>
                         <Category />
                     </div>
-
                 </div>
                 <div>
                     <Footer />

@@ -20,6 +20,10 @@
     span {
         cursor: pointer;
     }
+
+    button {
+        background-color: #fff;
+    }
 }
 
 .cart_container {
@@ -74,9 +78,7 @@
                         display: flex;
                         justify-content: space-between;
 
-                        button {
-                            padding: 0px 10px;
-                        }
+
 
                     }
 

@@ -4,6 +4,7 @@ import Home from '@pages/homes/Home'
 import RouteProduct from './RouteProduct'
 import RouteAuths from '../pages/auths/Route'
 import RouteUser from "./RouteUser"
+import AdminRoute from "@pages/admin/Route"
 
 export default function RouteSetup() {
   return (
@@ -13,10 +14,11 @@ export default function RouteSetup() {
         <Route path="/" element={<Home />}>
           <Route path="about" element={Lazy(() => import("@pages/homes/Home"))()}></Route>
           <Route path="infor" element={<>Thông Tin</>}></Route>
-          {RouteProduct}
         </Route>
+        {RouteProduct}
         {RouteUser}
         {RouteAuths}
+        {AdminRoute}
       </Routes>
     </BrowserRouter>
   )
