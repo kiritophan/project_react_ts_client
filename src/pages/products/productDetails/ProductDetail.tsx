@@ -35,7 +35,17 @@ message.config({
 
 
 export default function ProductDetail() {
-  const [products, setProducts] = useState<Product[]>([]);
+  // const [product, setProduct] = useState({});
+  const [product, setProduct] = useState<Product>({
+    id: '',
+    name: '',
+    avatar: '',
+    price: 0,
+    des: '',
+    categoryId: '',
+    productPictures: []
+  });
+
   const [quantity, setQuantity] = useState(1);
   const { productId } = useParams() as { productId: string };
   console.log("productId", productId);
@@ -46,7 +56,7 @@ export default function ProductDetail() {
         console.log("res", res);
 
         if (res.status == 200) {
-          setProducts(res.data.data);
+          setProduct(res.data.data);
         } else {
           alert(res.data.message);
         }
@@ -85,7 +95,7 @@ export default function ProductDetail() {
     }
     localStorage.setItem("carts", JSON.stringify(carts)) // save to local
   }
-  console.log("products", products)
+  console.log("product", product)
   return (
     <>
       <Navbar />
@@ -93,61 +103,54 @@ export default function ProductDetail() {
       <Outlet />
       <div className=''>
         <div className='productItem_infor'>
-          {
-            products.map(product => {
-              return (
-                <div className='productItem_container' key={product.id} style={{ border: "1px solid black" }}>
-                  <div className='image'>
-                    <div >
-                      <img src={product.avatar} />
-                    </div>
-                    <div style={{ display: "flex" }}>
+          <div className='productItem_container' key={(product as Product).id} style={{ border: "1px solid black" }}>
+            <div className='image'>
+              <div >
+                <img src={(product as Product).avatar} />
+              </div>
+              <div style={{ display: "flex" }}>
 
-                      {
-                        product.productPictures.map(img => (
-                          <img key={img.id} src={img.path} style={{ padding: "10px", width: "100px", height: "100px" }} />
-                        ))
-                      }
-                    </div>
-                  </div>
-                  <div className='productItem_infor'>
-                    <h3>Name: {product.name}</h3>
-                    <p>Price: {product.price}</p>
-                    <p>Des: {product.des}</p>
-                    <div className="count_product">
-                      <button
-                        className="count"
-                        onClick={() => {
-                          if (quantity > 1) {
-                            setQuantity(quantity - 1);
-                          }
-                        }}>
-                        <span className="material-symbols-outlined">-</span>
-                      </button>
+                {
+                  product.productPictures?.map(img => (
+                    <img key={img.id} src={img.path} style={{ padding: "10px", width: "100px", height: "100px" }} />
+                  ))
+                }
+              </div>
+            </div>
+            <div className='productItem_infor'>
+              <h3>Name: {(product as Product).name}</h3>
+              <p>Price: {(product as Product).price}</p>
+              <p>Des: {(product as Product).des}</p>
+              <div className="count_product">
+                <button
+                  className="count"
+                  onClick={() => {
+                    if (quantity > 1) {
+                      setQuantity(quantity - 1);
+                    }
+                  }}>
+                  <span className="material-symbols-outlined">-</span>
+                </button>
 
-                      <span className="quantity" style={{ fontSize: "25px" }}>
-                        {quantity}
-                      </span>
-                      <button
-                        className="count"
-                        onClick={() => {
-                          if (quantity > 0) {
-                            setQuantity(quantity + 1);
-                          }
-                        }}
-                      >
-                        <span className="material-symbols-outlined">+</span>
-                      </button>
-                    </div>
-                    <button className='add_to_cart_btn' onClick={() => {
-                      handleAddToCart(product.id, quantity)
-                    }} style={{ border: "1px solid black", cursor: "pointer", width: "100px", height: "50px" }}>Add to cart</button>
-                  </div>
-
-                </div>
-              )
-            })
-          }
+                <span className="quantity" style={{ fontSize: "25px" }}>
+                  {quantity}
+                </span>
+                <button
+                  className="count"
+                  onClick={() => {
+                    if (quantity > 0) {
+                      setQuantity(quantity + 1);
+                    }
+                  }}
+                >
+                  <span className="material-symbols-outlined">+</span>
+                </button>
+              </div>
+              <button className='add_to_cart_btn' onClick={() => {
+                handleAddToCart((product as Product).id, quantity)
+              }} style={{ border: "1px solid black", cursor: "pointer", width: "100px", height: "50px" }}>Add to cart</button>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

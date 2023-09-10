@@ -12,5 +12,5 @@ export default
         <Route path="/allproduct" element={Lazy(() => import("@pages/products/productOptions/ProductOptions"))()}></Route>
         <Route path="/cart" element={Lazy(() => import("@pages/carts/Cart"))()}></Route>
         <Route path="/payment" element={<Payment />}></Route>
-        <Route path="/recipt" element={<Receipts />}></Route>
+        <Route path="/receipt" element={<Receipts />}></Route>
     </>

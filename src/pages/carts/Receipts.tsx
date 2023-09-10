@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import api from '@/services/apis';
 
-export default function Recipts() {
+export default function Receipts() {
     const [emailInput, setEmailInput] = useState("");
     const [receipts, setReceipts] = useState([])
     console.log("receipts", receipts);
