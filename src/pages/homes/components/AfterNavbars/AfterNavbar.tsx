@@ -202,9 +202,18 @@ export default function AfterNavbar() {
     const [isShown, setIsShown] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null);
+
+    const [cartTotal, setCartTotal] = useState<number | null>(null);
+    useEffect(() => {
+        const localStorageCart = JSON.parse(localStorage.getItem("carts") || "[]");
+        const total = localStorageCart.reduce((result: number, nextItem: any) => {
+            return (result += nextItem.quantity);
+        }, 0);
+        setCartTotal(total);
+    }, []);
     return (
         <nav>
-            <div className='nav_content'>
+            <div className='nav_content '>
                 {/* <div className="navbar-top">
                     <span onClick={() => navigate("/store")}>Store Locator</span>
                     {isAdmin ? <span onClick={() => navigate("/admin")}>Admin</span> : <span>Support Pages</span>}
@@ -230,11 +239,12 @@ export default function AfterNavbar() {
                             </span>
                         </span>
                         <span className='cart-icon' onClick={() => navigate("/cart")}>
+                            <div style={{ fontSize: '15px', color: "red", transform: 'translate(30px,-20px)' }}> {cartTotal != null ? cartTotal : 0}</div>
                             <span className="material-symbols-outlined">
                                 shopping_cart
                             </span>
-                            {/* <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{cartLocalTotal != null ? cartLocalTotal : totalCart()}</span></span> */}
                         </span>
+
 
                     </div>
                 </div>

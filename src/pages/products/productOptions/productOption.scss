@@ -1,0 +1,24 @@
+.productItem_infor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+
+    img {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+.count_product {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-bottom: 20px;
+
+    .count {
+        padding: 0px 15px;
+    }
+}

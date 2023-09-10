@@ -88,18 +88,18 @@ export default function Cart() {
             <Outlet />
             <div className='cart_container'>
                 <div className='cart_shipping'>
-                    <h5>Shopping Cart</h5>
+                    <h1>Shopping Cart</h1>
                 </div>
                 <div className="cart_content_container" >
                     {
                         cart.map(item => (
                             <div key={item.productId} className="cart_content">
-                                <div className="cart_image">Product Name: {item.productDetail.name}</div>
+                                <div className="cart_image">Name: {item.productDetail.name}</div>
                                 <div className="cart_item">
                                     <p>
                                         <img src={item.productDetail.avatar} style={{ width: "100px", height: "100px", borderRadius: "50%" }} />
                                     </p>
-                                    <div className="cart_price">Product Price: {item.productDetail.price}</div>
+                                    <div className="cart_price">Price: {item.productDetail.price}</div>
                                     <div className="cart_count">
                                         <button onClick={() => {
                                             if (item.quantity > 1) {
@@ -120,12 +120,15 @@ export default function Cart() {
                                     </div>
 
                                     <div>
+
                                         <i style={{
                                             fontSize: "20px",
                                         }}
                                             className="fa-solid fa-trash"
+
                                             onClick={() => {
                                                 Modal.warning({
+
                                                     content: "Delete this item?",
                                                     onOk: () => {
                                                         deleteCart(item.productId)
@@ -141,17 +144,21 @@ export default function Cart() {
                     }
                 </div>
                 <div>
-                    Total Cart
-                    <p>
-                        ${calculateTotal()}
-                    </p>
-                    {/* <button
+                    <div className='total-cart'>
+                        <span>Total Cart</span>
+                        <p>
+                            {calculateTotal()} VND
+                        </p>
+
+                    </div>
+
+                    <button
                         onClick={() => {
                             window.location.href = '/payment'
                         }}
-                        type="button" className="btn btn-bgr btn-summary btn-block btn-lg">
+                        type="button" className="btn btn-bgr btn-summary btn-block btn-lg focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">
                         Check Out
-                    </button> */}
+                    </button>
                 </div>
             </div>
             <Footer />

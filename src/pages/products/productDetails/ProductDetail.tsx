@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom';
 import './productDetail.scss'
 import { message, Modal } from "antd";
+import { useParams } from 'react-router-dom'
 
 interface Product {
   id: string;
@@ -36,18 +37,26 @@ message.config({
 export default function ProductDetail() {
   const [products, setProducts] = useState<Product[]>([]);
   const [quantity, setQuantity] = useState(1);
-
-
+  const { productId } = useParams() as { productId: string };
+  console.log("productId", productId);
   useEffect(() => {
-    api.productApi.findMany()
-      .then(res => {
+    api.productApi
+      .findById(productId)
+      .then((res) => {
+        console.log("res", res);
+
         if (res.status == 200) {
-          setProducts(res.data.data)
+          setProducts(res.data.data);
+        } else {
+          alert(res.data.message);
         }
       })
-  }, [])
+      .catch((err) => {
+        console.log("err", err);
 
-
+        alert("sap server");
+      });
+  }, []);
 
   function handleAddToCart(productId: string, quantity: number) {
     let carts: CartItem[] = JSON.parse(localStorage.getItem("carts") ?? "[]");
@@ -76,6 +85,7 @@ export default function ProductDetail() {
     }
     localStorage.setItem("carts", JSON.stringify(carts)) // save to local
   }
+  console.log("products", products)
   return (
     <>
       <Navbar />
