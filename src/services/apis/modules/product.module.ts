@@ -14,4 +14,7 @@ export default {
     findById: async function (productId: string) {
         return await axios.get(`${import.meta.env.VITE_SV_HOST}products/` + productId)
     },
+    searchByName: async function (searchString: string) {
+        return await axios.get(`${import.meta.env.VITE_SV_HOST}/search?search=${searchString}`)
+    },
 }

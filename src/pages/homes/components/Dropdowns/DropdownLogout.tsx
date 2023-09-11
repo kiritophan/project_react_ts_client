@@ -26,12 +26,12 @@ export default function DropdownLogout() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <a className="dropdown-item" href="/profile">
+                    <a className="dropdown-item" href="#">
                         Profile
                     </a>
                 </li>
                 <li>
-                    <a className="dropdown-item" href='/receipts'>
+                    <a className="dropdown-item" href='/receipt'>
                         Purchase History
                     </a>
                 </li>

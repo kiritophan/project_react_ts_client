@@ -46,6 +46,7 @@ const Register = () => {
                         content: res.data.message,
                         okText: "login"
                     })
+                    window.location.href = "/login"
                 }
             })
             .catch(_err => {

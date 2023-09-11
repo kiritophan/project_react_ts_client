@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './dropdown.scss';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { StoreType } from '@/stores';
 
 export default function DropdownLogout() {
     const navigate = useNavigate();
@@ -10,6 +12,8 @@ export default function DropdownLogout() {
             navigate("/login");
         }
     };
+
+
     return (
         <div className="dropdown">
             <button
@@ -26,7 +30,7 @@ export default function DropdownLogout() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <a className="dropdown-item" onClick={() => window.location.assign(`${process.env.REACT_APP_DOMAIN}/profile`)}>
+                    <a className="dropdown-item" href='/admin'>
                         Admin
                     </a>
                 </li>

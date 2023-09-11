@@ -138,6 +138,7 @@ export default function Banner() {
                             sm:w-52
                             md:w-64
                             lg:w-72
+                            duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110
                             "
                         alt="app"
                     />
@@ -257,7 +258,7 @@ export default function Banner() {
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-14 w-14"
+                                    className="h-14 w-14 duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-150"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -288,6 +289,7 @@ export default function Banner() {
                                             border-8
                                             border-amber-400
                                             p-4
+                                            duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-150
                                             "
                             >
                                 <svg
@@ -323,6 +325,7 @@ export default function Banner() {
                                         border-8
                                         border-amber-400
                                         p-4
+                                        duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-150
     "
                             >
                                 <svg
@@ -359,49 +362,49 @@ export default function Banner() {
                         </p>
                     </div>
                     <div className="flex flex-wrap justify-center gap-8 md:gap-x-16 max-w-2xl mx-auto">
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img4}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img5}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img6}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img7}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img8}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img9}
                                 alt="Partner"
                                 className="h-16 w-16"
                             />
                         </div>
-                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md">
+                        <div className="p-4 bg-white dark:bg-neutral-600 shadow-md dark:shadow-xl rounded-md duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                             <img
                                 src={img10}
                                 alt="Partner"
@@ -422,7 +425,7 @@ export default function Banner() {
                                 </p>
                             </div>
                             <a
-                                href="#"
+                                href="/register"
                                 className="
                                             py-2
                                             px-6

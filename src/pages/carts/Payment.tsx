@@ -75,6 +75,7 @@ export default function Payment() {
                     setLoading(false);
                     localStorage.removeItem("carts");
                     message.success(res.data.message);
+                    window.location.href = "/receipt"
                 } else {
                     message.error(res.data.message);
                 }

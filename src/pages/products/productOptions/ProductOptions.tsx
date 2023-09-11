@@ -85,7 +85,7 @@ export default function ProductDetail() {
             <AfterNavbar />
             <Outlet />
             <div className=''>
-                <div className='productItem_infor grid grid-cols-4 gap-4'>
+                <div className='productItem_infor grid grid-cols-3 gap-3'>
                     {
                         products.map(product => {
                             return (
@@ -105,15 +105,15 @@ export default function ProductDetail() {
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                                             {product.price}
                                         </p>
-                                        <a
+                                        <span
                                             onClick={() => {
                                                 handleAddToCart(product.id, quantity)
                                             }}
-                                            href="#"
-                                            className="inline-flex mr-4 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+
+                                            className="inline-flex cursor-pointer mr-4 items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                         >
                                             Thêm vào giỏ
-                                        </a>
+                                        </span>
                                         <Link
                                             to={`/product-detail/${product.id}`}
                                             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
