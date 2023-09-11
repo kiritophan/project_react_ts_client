@@ -113,6 +113,7 @@ export default function Banner() {
                             grid-rows-1
                             place-items-end
                             px-2
+                            duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110
                                 "
                 >
                     <img
@@ -416,7 +417,7 @@ export default function Banner() {
                 <section aria-labelledby="home" className="relative">
                     <div className="flex flex-wrap-reverse gap-8 justify-center">
                         <div className="flex gap-6 flex-wrap flex-col items-start lg:justify-center">
-                            <div className="flex flex-wrap flex-col items-start gap-2">
+                            <div className="flex flex-wrap flex-col items-start gap-2 duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110">
                                 <h2 className="text-4xl font-bold">Relax, you’re home!</h2>
                                 <p className="max-w-md">
                                     All our supported hardware includes traditional inputs so you can
@@ -449,7 +450,7 @@ export default function Banner() {
                                 Sign Up
                             </a>
                         </div>
-                        <img src={table} alt="Table" />
+                        <img src={table} alt="Table" className="duration-300 cursor-pointer hover:grayscale-0 hover:-translate-y-1 hover:scale-110" />
                     </div>
                     <div
                         className="

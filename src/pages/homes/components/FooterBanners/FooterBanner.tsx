@@ -11,7 +11,7 @@ export default function FooterBanner() {
                         <img className="rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-2.png" alt="image description" />
                     </a>
                     <figcaption className="absolute px-4 text-lg text-white bottom-6">
-                        <p>Do you want to get notified when a new component is added to Flowbite?</p>
+                        <p>Đến Nhà Xinh trò chuyện về hành trình sáng tạo</p>
                     </figcaption>
                 </figure>
                 <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
@@ -19,7 +19,7 @@ export default function FooterBanner() {
                         <img className="rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png" alt="image description" />
                     </a>
                     <figcaption className="absolute px-4 text-lg text-white bottom-6">
-                        <p>Do you want to get notified when a new component is added to Flowbite?</p>
+                        <p>Cuối tuần vừa qua, Nhà Xinh Phú Mỹ Hưng hân hạnh được chào đón diễn giả Trần Đình Thông cùng</p>
                     </figcaption>
                 </figure>
                 <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
@@ -27,7 +27,7 @@ export default function FooterBanner() {
                         <img className="rounded-lg" src="https://nhaxinh.com/wp-content/uploads/2023/03/Sofa-Royal-2-cho-vai-20419-1231x800.jpg" alt="image description" />
                     </a>
                     <figcaption className="absolute px-4 text-lg text-white bottom-6">
-                        <p>Do you want to get notified when a new component is added to Flowbite?</p>
+                        <p>Những lưu ý khi bài trí không gian phòng khách</p>
                     </figcaption>
                 </figure>
                 <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
@@ -35,7 +35,7 @@ export default function FooterBanner() {
                         <img className="rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-4.png" alt="image description" />
                     </a>
                     <figcaption className="absolute px-4 text-lg text-white bottom-6">
-                        <p>Do you want to get notified when a new component is added to Flowbite?</p>
+                        <p>Phòng khách là nơi tạo ấn tượng đầu tiên cho bất cứ ai khi bước vào ngôi nhà.</p>
                     </figcaption>
                 </figure>
             </div>
