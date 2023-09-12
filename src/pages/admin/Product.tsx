@@ -68,13 +68,6 @@ export default function Product() {
                                     <td><button onClick={() => {
                                         setUpdateData(product);
                                     }}>Update</button></td>
-                                    <i style={{
-                                        fontSize: "20px",
-                                    }}
-                                        className="fa-solid fa-trash"
-
-
-                                    ></i>
                                 </tr>
                             ))}
                         </tbody>

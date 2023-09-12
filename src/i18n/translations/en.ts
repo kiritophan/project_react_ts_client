@@ -9,7 +9,11 @@ const data = {
     signin: "Sign in",
     freeTrial: "Register now and Start a 14 day free trial",
     loginNow: "Have an account Login Now",
-    notMember: "Don't have an account?"
+    notMember: "Don't have an account?",
+    Shop: "Shop",
+    Services: "Services",
+    Pricing: "Pricing",
+    Contact: "Contact"
 }
 
 export type I18nType = typeof data;

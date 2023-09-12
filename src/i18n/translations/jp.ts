@@ -9,7 +9,11 @@ const data = {
     passWord: "パスワード",
     freeTrial: "登録して14日無料試用",
     loginNow: "ログイン",
-    notMember: "まだ楽天会員に登録されていない方？"
+    notMember: "まだ楽天会員に登録されていない方？",
+    Shop: "ショッピング",
+    Services: "サービス",
+    Pricing: "見積",
+    Contact: "お問い合わせ"
 }
 export type I18nType = typeof data;
 export default data;

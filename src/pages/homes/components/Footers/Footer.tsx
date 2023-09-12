@@ -1,5 +1,6 @@
 import React from 'react'
 import BeforeAfter from './BeforeAfter'
+import DropDown from "@/components/DropDown"
 
 export default function Footer() {
     return (
@@ -8,6 +9,11 @@ export default function Footer() {
             <footer className="bg-slate-100 dark:bg-gray-900">
                 <div className="mx-auto w-full max-w-screen-xl">
                     <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                <DropDown />
+                            </h2>
+                        </div>
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                                 Company
@@ -84,33 +90,6 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                Download
-                            </h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        iOS
-                                    </a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        Android
-                                    </a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        Windows
-                                    </a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">
-                                        MacOS
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <div className="px-4 py-6 bg-gray-300 dark:bg-gray-700 md:flex md:items-center md:justify-between">
                         <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
@@ -119,7 +98,7 @@ export default function Footer() {
                         </span>
                         <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/profile.php?id=100094580164545"
                                 className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
                             >
                                 <svg
